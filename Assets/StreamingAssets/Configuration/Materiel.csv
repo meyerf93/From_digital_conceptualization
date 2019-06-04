@@ -1,0 +1,24 @@
+﻿Sous_categorie_Materiaux;ID;Nom;Image_selected;Image_unselected;
+;1;Organique;Images/Materiaux/Organique.png;Images/Materiaux/Organique.png;
+;2;Non organique;Images/Materiaux/Non_organique.png;Images/Materiaux/Non_organique.png;
+;3;Métallique;Images/Materiaux/Metallique.png;Images/Materiaux/Metallique.png;
+;4;Plastique;Images/Materiaux/Plastique.png;Images/Materiaux/Plastique.png;
+Materiaux;ID;Nom;Image_selected;Image_unselected;Sous categorie Materiaux
+;1;Fil de fer;Images/Materiaux/Fil_de_fer.png;Images/Materiaux/Fil_de_fer.png;3
+;2;Plaque métallique;Images/Materiaux/Plaques_metalliques.png;Images/Materiaux/Plaques_metalliques.png;3
+;3;Laine de fer;Images/Materiaux/Laine_de_fer.png;Images/Materiaux/Laine_de_fer.png;3
+;4;Anneaux;Images/Materiaux/Anneaux.png;Images/Materiaux/Anneaux.png;3
+;5;Plexiglas;Images/Materiaux/Plexiglass.png;Images/Materiaux/Plexiglass.png;4
+;6;Sagex;Images/Materiaux/Sagex.png;Images/Materiaux/Sagex.png;4
+;7;Tissus plastiques;Images/Materiaux/Tissus_plastique.png;Images/Materiaux/Tissus_plastique.png;4
+;8;Bouteille PET;Images/Materiaux/Bouteille_PET.png;Images/Materiaux/Bouteille_PET.png;4
+;9;Bille;Images/Materiaux/Bille.png;Images/Materiaux/Bille.png;1
+;10;Bois;Images/Materiaux/Bois.png;Images/Materiaux/Bois.png;1
+;11;Papier;Images/Materiaux/Papier.png;Images/Materiaux/Papier.png;1
+;12;Carton;Images/Materiaux/Carton.png;Images/Materiaux/Carton.png;1
+;13;Ouate;Images/Materiaux/Ouate.png;Images/Materiaux/Ouate.png;1
+;14;Tissus organiques;Images/Materiaux/Tissus_organiques.png;Images/Materiaux/Tissus_organiques.png;1
+;15;Poterie;Images/Materiaux/Poterie.png;Images/Materiaux/Poterie.png;2
+;16;Roche;Images/Materiaux/Roche.png;Images/Materiaux/Roche.png;2
+;17;Verre;Images/Materiaux/Verre.png;Images/Materiaux/Verre.png;2
+;18;Sable;Images/Materiaux/Sable.png;Images/Materiaux/Sable.png;2

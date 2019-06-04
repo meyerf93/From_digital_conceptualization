@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Load.unity
+    guid: afdd6ba49818b46a6ac19c51bdd0ca38
+  - enabled: 1
+    path: Assets/Scenes/Selection_objet.unity
+    guid: 40d482cf6c24e4b1e81d90c8f81bb1ff
+  - enabled: 1
+    path: Assets/Scenes/Context_objet.unity
+    guid: cc1deae320079428580020abfe6f9286
+  - enabled: 1
+    path: Assets/Scenes/Forme_objet.unity
+    guid: d2bea3cdd7572de4ba1f5dc386e0e23b
+  - enabled: 1
+    path: Assets/Scenes/Imaginons_objet.unity
+    guid: 9d2a2a74cc2c244178526fc0120b8435
+  - enabled: 1
+    path: Assets/Scenes/Technique.unity
+    guid: a3216b2eb35c3d143aa9fe3c4730df4c
+  - enabled: 1
+    path: Assets/Scenes/Material.unity
+    guid: a82fca5e12cc8834b8d923b0cd625c7c
+  - enabled: 1
+    path: Assets/Scenes/Outils.unity
+    guid: 0f6e7331ebad86e4ea3aa71c7f31a1ba
+  - enabled: 1
+    path: Assets/Scenes/Taille.unity
+    guid: 616db8d4a8d8c7848932d0d9f2081694
+  - enabled: 1
+    path: Assets/Scenes/Forme.unity
+    guid: a19aae8941c0c7344bce97acf18624dc
+  - enabled: 1
+    path: Assets/Scenes/Question_eciture.unity
+    guid: fe0ae096cc5fa40d2af055ef532df13c
+  - enabled: 1
+    path: Assets/Scenes/Evaluation_choix.unity
+    guid: 892e0b2750bf94e42a4d266c021e8f99
+  m_configObjects: {}

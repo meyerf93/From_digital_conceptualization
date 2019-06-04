@@ -1,0 +1,10 @@
+﻿Justification_materiel;ID;Nom;Image_selected;Image_unselected
+;1;Torsion;Images/Justification_mat/Torsion.png;Images/Justification_mat/Torsion.png
+;2;Elasticite;Images/Justification_mat/Elasticite.png;Images/Justification_mat/Elasticite.png
+;3;Résistance chimique;Images/Justification_mat/Resistance_chimique.png;Images/Justification_mat/Resistance_chimique.png
+;4;Transparence;Images/Justification_mat/Transparence.png;Images/Justification_mat/Transparence.png
+;5;Rigidité;Images/Justification_mat/Rigidite.png;Images/Justification_mat/Rigidite.png
+;6;Conductivite electrique;Images/Justification_mat/Conductivite_electrique.png;Images/Justification_mat/Conductivite_electrique.png
+;7;Conductivité thermique;Images/Justification_mat/Conductivite_thermique.png;Images/Justification_mat/Conductivite_thermique.png
+;8;Biodegradation;Images/Justification_mat/Biodegradabilite.png;Images/Justification_mat/Biodegradabilite.png
+;9;Durete;Images/Justification_mat/Duretee.png;Images/Justification_mat/Duretee.png

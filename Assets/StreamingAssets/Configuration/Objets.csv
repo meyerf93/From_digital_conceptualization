@@ -1,0 +1,4 @@
+﻿Objets;ID;Nom;Image_selected;Image_unselected;min_etoiles
+;1;Porte-clés;Images/Porte_cles_selected.png;Images/Porte_cles_unselected.png;0
+;2;Photophore;Images/Photophore_selected.png;Images/Photophore_unselected.png;5
+;3;Collier;Images/Collier_selected.png;Images/Collier_unselected.png;10
