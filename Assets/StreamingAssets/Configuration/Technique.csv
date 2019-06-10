@@ -1,19 +1,19 @@
 ﻿Technique;ID;Nom;Image_selected;Image_unselected
-;1;Constructions en plaque;Images/Technique/Construction_plaque.png;Images/Technique/Construction_plaque.png
+;1;Construction en plaques;Images/Technique/Construction_plaque.png;Images/Technique/Construction_plaque.png
 ;2;En enlevant de la matière;Images/Technique/Elevant_matiere.png;Images/Technique/Elevant_matiere.png
 ;3;En ajoutant de la matière;Images/Technique/Ajouter_matiere.png;Images/Technique/Ajouter_matiere.png
 ;4;En pressant la matière;Images/Technique/Pressant_matiere.png;Images/Technique/Pressant_matiere.png
 ;5;Ponçage grossier;Images/Technique/Ponncage_grossier.png;Images/Technique/Ponncage_grossier.png
-;6;Tracage;Images/Technique/Tracage.png;Images/Technique/Tracage.png
+;6;Traçage;Images/Technique/Tracage.png;Images/Technique/Tracage.png
 ;7;Décalcage;Images/Technique/Decalquer.png;Images/Technique/Decalquer.png
-;8;Découpé au cutter;Images/Technique/Decouper_cutter.png;Images/Technique/Decouper_cutter.png
-;9;Découpé à la scie;Images/Technique/Decoupe_scie.png;Images/Technique/Decoupe_scie.png
+;8;Découpage au cutter;Images/Technique/Decouper_cutter.png;Images/Technique/Decouper_cutter.png
+;9;Découpage à la scie;Images/Technique/Decoupe_scie.png;Images/Technique/Decoupe_scie.png
 ;10;Ponçage fin;Images/Technique/Poncage_fin.png;Images/Technique/Poncage_fin.png
 ;11;Peinture;Images/Technique/Peinture.png;Images/Technique/Peinture.png
 ;12;Poinçonnage;Images/Technique/Poiconnage.png;Images/Technique/Poiconnage.png
-;13;Percage;Images/Technique/Percage.png;Images/Technique/Percage.png
-;14;Prise de mesure;Images/Technique/Prise_messure.png;Images/Technique/Prise_messure.png
+;13;Perçage;Images/Technique/Percage.png;Images/Technique/Percage.png
+;14;Prise de mesures;Images/Technique/Prise_messure.png;Images/Technique/Prise_messure.png
 ;15;Pyrogravure;Images/Technique/Pyrogravure.png;Images/Technique/Pyrogravure.png
-;16;Plier;Images/Technique/Plier.png;Images/Technique/Plier.png
-;17;Coller;Images/Technique/Coller.png;Images/Technique/Coller.png
+;16;Pliage;Images/Technique/Plier.png;Images/Technique/Plier.png
+;17;Collage;Images/Technique/Coller.png;Images/Technique/Coller.png
 ;18;Torsader;Images/Technique/Torsader.png;Images/Technique/Torsader.png

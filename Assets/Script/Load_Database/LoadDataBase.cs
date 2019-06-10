@@ -22,88 +22,88 @@ public class LoadDataBase : MonoBehaviour
 
 		}
 		else if (loadManager != this)
-        {
-            Destroy(gameObject);
-        }
+		{
+			Destroy(gameObject);
+		}
 	}
-    
+
 	public string LoadStreamingAssetText(string absoluteFilePath)
 	{
 		string path = "";
-        if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.OSXEditor
-		    || Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.OSXPlayer)
-        {
-            //Debug.Log("in windows or mac platform");
+		if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.OSXEditor
+			|| Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.OSXPlayer)
+		{
+			//Debug.Log("in windows or mac platform");
 			path = "file://" + Application.streamingAssetsPath + "/" + absoluteFilePath;
-        }
-        else if (Application.platform == RuntimePlatform.Android)
-        {
-            //Debug.Log("in android platform");
+		}
+		else if (Application.platform == RuntimePlatform.Android)
+		{
+			//Debug.Log("in android platform");
 			path = "jar:file://" + Application.dataPath + "!/assets/" + absoluteFilePath;
-        }
-        else if (Application.platform == RuntimePlatform.IPhonePlayer)
-        {
-            //Debug.Log("in iphone plateform");
+		}
+		else if (Application.platform == RuntimePlatform.IPhonePlayer)
+		{
+			//Debug.Log("in iphone plateform");
 			path = "file://" + Application.streamingAssetsPath + "/" + absoluteFilePath;
-        }
+		}
 
 		WWW www = new WWW(path);
 
-		while(!www.isDone)  { }
+		while (!www.isDone) { }
 
-        if (!string.IsNullOrEmpty(www.error))
-        {
-
-            Debug.LogError(www.error);
-            return null;
-        }
-        else
-        {
+		if (!string.IsNullOrEmpty(www.error))
+		{
+			Debug.LogError(path);
+			Debug.LogError(www.error);
+			return null;
+		}
+		else
+		{
 			return www.text;
-        }
+		}
 
 	}
 
 	public Sprite LoadStreamingAssetSprite(string absoluteImagePath)
-    {
+	{
 
 		string path = "";
 		if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.OSXEditor
-            || Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.OSXPlayer)
-        {
-            //Debug.Log("in windows or mac platform");
+			|| Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.OSXPlayer)
+		{
+			//Debug.Log("in windows or mac platform");
 			path = "file://" + Application.streamingAssetsPath + "/" + absoluteImagePath;
-        }
-        else if (Application.platform == RuntimePlatform.Android)
-        {
-            //Debug.Log("in android platform");
+		}
+		else if (Application.platform == RuntimePlatform.Android)
+		{
+			//Debug.Log("in android platform");
 			path = "jar:file://" + Application.dataPath + "!/assets/" + absoluteImagePath;
-        }
+		}
 		else if (Application.platform == RuntimePlatform.IPhonePlayer)
-        {
-            //Debug.Log("in iphone plateform");
+		{
+			//Debug.Log("in iphone plateform");
 			path = "file://" + Application.streamingAssetsPath + "/" + absoluteImagePath;
-        }
-                               
+		}
+
 		WWW www = new WWW(path);
 
 		while (!www.isDone) { }
-             
-        if (!string.IsNullOrEmpty(www.error))
-        {
+
+		if (!string.IsNullOrEmpty(www.error))
+		{
 			Debug.LogError(path);
 			Debug.LogError(www.error);
 			return null;
-        }
-        else
-        {
+		}
+		else
+		{
 			Sprite temp_sprite = Sprite.Create(www.texture,
-			                                   new Rect(0, 0, www.texture.width, www.texture.height), Vector2.zero);
+											   new Rect(0, 0, www.texture.width, www.texture.height), Vector2.zero);
 
 			return temp_sprite;
-        }
-    }
-   
+		}
+	}
+
 	public object load_Objets(string[] file_line)
 	{
 		string Header = null;
@@ -136,7 +136,7 @@ public class LoadDataBase : MonoBehaviour
 				else temp.Lock.isLocked = false;
 
 				temp.Lock.image_path = LOCK_FILEPATH;
-				temp.Lock.image =  LoadStreamingAssetSprite(temp.Lock.image_path);
+				temp.Lock.image = LoadStreamingAssetSprite(temp.Lock.image_path);
 
 				temp.Association_Questions = new List<Association_question>();
 
@@ -171,74 +171,6 @@ public class LoadDataBase : MonoBehaviour
 			{
 				Header = elements[0];
 				marker = i;
-			}
-			if (Header.CompareTo("Historique") == 0 && i > marker)
-			{
-				/*//Debug.Log("in historique");
-
-                Historique temp = new Historique();
-                temp.ID = int.Parse(elements[1]);
-                temp.Objet = int.Parse(elements[2]);
-
-                string[] forme;
-                for (int j = 3; j < elements.Length - 1; j++)
-                {
-                    List<int> liste = new List<int>();
-
-                    if (elements[j].CompareTo("") != 0)
-                    {
-                        forme = elements[j].Split(',');
-                        foreach (string thing in forme)
-                        {
-                            liste.Add(int.Parse(thing));
-                        }
-                    }
-                    switch (j)
-                    {
-                        case 3:
-                            temp.FormeActive = liste;
-                            break;
-                        case 4:
-                            temp.FormeInactive = liste;
-                            break;
-                        case 5:
-                            temp.TailleActive = liste;
-                            break;
-                        case 6:
-                            temp.TailleInactive = liste;
-                            break;
-                        case 7:
-                            temp.MateriauxActif = liste;
-                            break;
-                        case 8:
-                            temp.MateriauxInactif = liste;
-                            break;
-                        case 9:
-                            temp.SousMateriauxActif = liste;
-                            break;
-                        case 10:
-                            temp.SousMateriauxInactif = liste;
-                            break;
-                        case 11:
-                            temp.OutilsActif = liste;
-                            break;
-                        case 12:
-                            temp.OutilsInactif = liste;
-                            break;
-                        case 13:
-                            temp.TechniqueActive = liste;
-                            break;
-                        case 14:
-                            temp.TechniqueInactive = liste;
-                            break;
-                        case 15:
-                            temp.AssociationJustification = liste;
-                            break;
-                        default:
-                            break;
-                    }
-                }
-                Historique.Add(temp);*/
 			}
 			else if (Header.CompareTo("Profils") == 0 && i > marker)
 			{

@@ -10,5 +10,4 @@ public class StateSousMateriaux
 	public int SousMateriaux;
 	public bool Selected;
 	public bool Modification;
-
 }

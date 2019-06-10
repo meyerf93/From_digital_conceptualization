@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//Ce script est lier au boutton "Forme" du préfabs Navigation. Il va vérifier
+//dans le modèle que l'étape du choix de la forme à bien été effectuer et va
+//changer la couleur du bouton si c'est le cas
 public class FormeCompleted : MonoBehaviour
 {
-
 	private ChoiceController model;
 	private Image actual_image;
 
@@ -19,16 +20,15 @@ public class FormeCompleted : MonoBehaviour
 		actual_image = GetComponent<Image>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-		if(model.Forme_objet) 
-		{
-			actual_image.sprite = FormeOn;
-		}
-		else 
-		{
-			actual_image.sprite = noFormeOn;
-		}
-    }
+	private void Update()
+	{
+        if (model.Forme_objet)
+        {
+            actual_image.sprite = FormeOn;
+        }
+        else
+        {
+            actual_image.sprite = noFormeOn;
+        }
+	}
 }

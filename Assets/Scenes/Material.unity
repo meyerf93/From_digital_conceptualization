@@ -1233,7 +1233,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Pourquoi choisir ceette mati\xE8re ?"
+  m_Text: "Pourquoi choisir cette mati\xE8re ?"
 --- !u!222 &1016132510
 CanvasRenderer:
   m_ObjectHideFlags: 0

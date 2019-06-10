@@ -15,23 +15,23 @@ public class DownloadManager : MonoBehaviour
 	private LoadDataBase dataBase;
 	private ChoiceController model;
 
-    
-    public void Awake()
-    {
+
+	public void Awake()
+	{
 		if (downloadManager == null)
-        {
+		{
 			downloadManager = this;
-            DontDestroyOnLoad(gameObject);
+			DontDestroyOnLoad(gameObject);
 
 			dataBase = FindObjectOfType<LoadDataBase>();
-            model = FindObjectOfType<ChoiceController>();
+			model = FindObjectOfType<ChoiceController>();
 
-        }
+		}
 		else if (downloadManager != this)
-        {
-            Destroy(gameObject);
-        }
-    }
+		{
+			Destroy(gameObject);
+		}
+	}
 
 	public static byte[] SerializeObject<T>(T serializableObject)
 	{
@@ -46,24 +46,24 @@ public class DownloadManager : MonoBehaviour
 	}
 
 	public void UploadProfilsOffline(List<DownloadItem> list_item)
-    {
-        foreach (DownloadItem element in list_item)
-        {
-            if (!element.startLoad)
-            {
-                element.startLoad = true;
-                Debug.Log(element.filePath);
+	{
+		foreach (DownloadItem element in list_item)
+		{
+			if (!element.startLoad)
+			{
+				element.startLoad = true;
+				Debug.Log(element.filePath);
 				SaveSystem.SaveProfils(element.data as Profils, element.filePath);
-                element.isLoaded = true;
-            }
-        }
-    }
+				element.isLoaded = true;
+			}
+		}
+	}
 
 	public void UploadCurrentStateOffline(List<DownloadItem> list_item)
 	{
-		foreach(DownloadItem element in list_item)
+		foreach (DownloadItem element in list_item)
 		{
-			if(!element.startLoad)
+			if (!element.startLoad)
 			{
 				element.startLoad = true;
 				Debug.Log(element.filePath);
@@ -113,25 +113,25 @@ public class DownloadManager : MonoBehaviour
 	}
 
 	public void DownloadProfilOffline(List<DownloadItem> liste_download)
-    {
-        foreach (DownloadItem element in liste_download)
-        {
-            if (!element.startLoad)
-            {
-                element.startLoad = true;
-                Debug.Log(element.filePath);
+	{
+		foreach (DownloadItem element in liste_download)
+		{
+			if (!element.startLoad)
+			{
+				element.startLoad = true;
+				Debug.Log(element.filePath);
 				Profils temp_liste = SaveSystem.LoadProfils(element.filePath);
 				if (temp_liste != null) model.Profils = temp_liste;
-                element.isLoaded = true;
-            }
-        }
-    }
+				element.isLoaded = true;
+			}
+		}
+	}
 
 	public void DownloadCurrentStateOffline(List<DownloadItem> liste_download)
 	{
-		foreach(DownloadItem element in liste_download)
+		foreach (DownloadItem element in liste_download)
 		{
-			if(!element.startLoad)
+			if (!element.startLoad)
 			{
 				element.startLoad = true;
 				Debug.Log(element.filePath);
@@ -161,15 +161,15 @@ public class DownloadManager : MonoBehaviour
 					  else
 					  {
 						  element.data = DeserializeObject<List<Objets>>(res.data);
-                        
+
 						  dataBase.Load_current_state(element.data as List<Objets>);
-                        
+
 						  element.isLoaded = true;
 					  }
 				  }, (progress) =>
 				  {
 					  Debug.Log("Downaload progress: " + progress.ToString());
-				}, receiveUpdates: true, useCachedIfOffline: true, useCachedFirst: true);
+				  }, receiveUpdates: true, useCachedIfOffline: true, useCachedFirst: true);
 
 			}
 		}
@@ -177,9 +177,9 @@ public class DownloadManager : MonoBehaviour
 
 	public void DownloadImageOffline(List<DownloadImageItem> liste_download)
 	{
-		foreach(DownloadImageItem image in liste_download)
+		foreach (DownloadImageItem image in liste_download)
 		{
-			if(!image.startLoad)
+			if (!image.startLoad)
 			{
 				image.startLoad = true;
 
@@ -211,13 +211,13 @@ public class DownloadManager : MonoBehaviour
 					  }
 					  else
 					  {
-						//Debug.Log("Received image from Dropbox!");
-						Sprite temp_sprite = Sprite.Create(res.data as Texture2D,
-															  new Rect(0, 0, res.data.width, res.data.height), Vector2.zero);
+						  //Debug.Log("Received image from Dropbox!");
+						  Sprite temp_sprite = Sprite.Create(res.data as Texture2D,
+																new Rect(0, 0, res.data.width, res.data.height), Vector2.zero);
 
-						image.item.Image_selected = temp_sprite;
-						image_selected = true;
-						if (image_unselected && image_selected) image.isLoaded = true;
+						  image.item.Image_selected = temp_sprite;
+						  image_selected = true;
+						  if (image_unselected && image_selected) image.isLoaded = true;
 					  }
 				  }, (progress) =>
 				  {
@@ -226,7 +226,6 @@ public class DownloadManager : MonoBehaviour
 
 				StartCoroutine(Timer(5));
 
-				//Debug.Log("/StreamingAssets/" + image.item.Image_path_selected);
 				DropboxSync.Main.GetFile<Texture2D>("/StreamingAssets/" + image.item.Image_path_unselected, (res) =>
 				{
 					if (res.error != null)
@@ -237,7 +236,6 @@ public class DownloadManager : MonoBehaviour
 					}
 					else
 					{
-						//Debug.Log("Received image from Dropbox!");
 						Sprite temp_sprite = Sprite.Create(res.data as Texture2D,
 															new Rect(0, 0, res.data.width, res.data.height), Vector2.zero);
 
@@ -258,52 +256,52 @@ public class DownloadManager : MonoBehaviour
 	}
 
 	IEnumerator Timer(int value)
-    {
+	{
 		yield return new WaitForSeconds(value);
-    }
+	}
 
 	public void DownloadFileOffline(List<DownloadItem> liste_download)
 	{
 		DownloadItem objet = liste_download.Find(r => r.type == Donwload_type.Objet);
 
-        foreach (DownloadItem item in liste_download)
-        {
-            if (item.type == Donwload_type.Objet)
-            {
-                if (!item.startLoad)
-                {
-                    item.startLoad = true;
+		foreach (DownloadItem item in liste_download)
+		{
+			if (item.type == Donwload_type.Objet)
+			{
+				if (!item.startLoad)
+				{
+					item.startLoad = true;
 
 					string temp_file = dataBase.LoadStreamingAssetText(item.filePath);
 					temp_file = temp_file.Replace("\r", "");
 
 					string[] file_line = Regex.Split(temp_file, "\n");
 
-                    Load_thing(item, file_line);
-     
+					Load_thing(item, file_line);
+
 					item.isLoaded = true;
-                }
-            }
-            else
-            {
-                if (objet.isLoaded)
-                {
-                    if (!item.startLoad)
-                    {
-                        item.startLoad = true;
+				}
+			}
+			else
+			{
+				if (objet.isLoaded)
+				{
+					if (!item.startLoad)
+					{
+						item.startLoad = true;
 
 						string temp_file = dataBase.LoadStreamingAssetText(item.filePath);
-                        temp_file = temp_file.Replace("\r", "");
+						temp_file = temp_file.Replace("\r", "");
 
-                        string[] file_line = Regex.Split(temp_file, "\n");
+						string[] file_line = Regex.Split(temp_file, "\n");
 
-                        Load_thing(item, file_line);
+						Load_thing(item, file_line);
 
 						item.isLoaded = true;
-                    }
-                }
-            }
-        }
+					}
+				}
+			}
+		}
 	}
 
 	public void DownloadFile(List<DownloadItem> liste_download)
@@ -326,8 +324,6 @@ public class DownloadManager : MonoBehaviour
 						}
 						else
 						{
-							Debug.Log("Received image from Dropbox!");
-
 							res.data = res.data.Replace("\r", "");
 
 							string[] file_line = Regex.Split(res.data, "\n");
@@ -359,8 +355,6 @@ public class DownloadManager : MonoBehaviour
 							}
 							else
 							{
-								Debug.Log("Received file from Dropbox!");
-
 								res.data = res.data.Replace("\r", "");
 
 								string[] file_line = Regex.Split(res.data, "\n");
@@ -368,7 +362,6 @@ public class DownloadManager : MonoBehaviour
 								Load_thing(item, file_line);
 
 								item.isLoaded = true;
-
 							}
 						}, (progress) =>
 						{

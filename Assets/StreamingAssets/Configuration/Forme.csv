@@ -1,19 +1,19 @@
 ﻿Forme;ID;Nom;Image_selected;Image_unselected
 ;1;Sphère;Images/Forme/Sphere.png;Images/Forme/Sphere.png
 ;2;Cube;Images/Forme/Cube.png;Images/Forme/Cube.png
-;3;Parrallelepiped;Images/Forme/Parallelipiped.png;Images/Forme/Parallelipiped.png
-;4;Tetrahedron;Images/Forme/Tetrahedron.png;Images/Forme/Tetrahedron.png
-;5;Hexaconal prism;Images/Forme/Hexaconal_prism.png;Images/Forme/Hexaconal_prism.png
-;6;Cone;Images/Forme/Cone.png;Images/Forme/Cone.png
-;7;Tor;Images/Forme/Tor.png;Images/Forme/Tor.png
-;8;Prism;Images/Forme/Prism.png;Images/Forme/Prism.png
-;9;Triangular prism;Images/Forme/Triangular_prism.png;Images/Forme/Triangular_prism.png
-;10;Cercle;Images/Forme/Cercle.png;Images/Forme/Cercle.png
+;3;Parallélépipède;Images/Forme/Parallelipiped.png;Images/Forme/Parallelipiped.png
+;4;Pyramidale;Images/Forme/Tetrahedron.png;Images/Forme/Tetrahedron.png
+;5;Hexagonal prisme;Images/Forme/Hexaconal_prism.png;Images/Forme/Hexaconal_prism.png
+;6;Cône;Images/Forme/Cone.png;Images/Forme/Cone.png
+;7;Tore;Images/Forme/Tor.png;Images/Forme/Tor.png
+;8;Prisme;Images/Forme/Prism.png;Images/Forme/Prism.png
+;9;Cylindre;Images/Forme/Triangular_prism.png;Images/Forme/Triangular_prism.png
+;10;Elipse;Images/Forme/Cercle.png;Images/Forme/Cercle.png
 ;11;Triangle;Images/Forme/Triangle.png;Images/Forme/Triangle.png
 ;12;Carré;Images/Forme/Carre.png;Images/Forme/Carre.png
 ;13;Rectangle;Images/Forme/Rectangle.png;Images/Forme/Rectangle.png
 ;14;Losange;Images/Forme/Losange.png;Images/Forme/Losange.png
 ;15;Trapèze;Images/Forme/Trapeze.png;Images/Forme/Trapeze.png
-;16;Elipse;Images/Forme/Elipse.png;Images/Forme/Elipse.png
-;17;Pentagon;Images/Forme/Pentagone.png;Images/Forme/Pentagone.png
+;16;Cercle;Images/Forme/Elipse.png;Images/Forme/Elipse.png
+;17;Pentagone;Images/Forme/Pentagone.png;Images/Forme/Pentagone.png
 ;18;Hexagone;Images/Forme/Hexagone.png;Images/Forme/Hexagone.png

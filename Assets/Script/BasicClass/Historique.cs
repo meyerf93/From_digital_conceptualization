@@ -19,5 +19,5 @@ public class Historique
 	public List<int> OutilsInactif;
 	public List<int> TechniqueActive;
 	public List<int> TechniqueInactive;
-	public List<int> AssociationJustification;    
+	public List<int> AssociationJustification;
 }

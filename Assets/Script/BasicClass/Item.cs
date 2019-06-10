@@ -10,8 +10,8 @@ public class Item
 	public string Image_path_selected;
 	public string Image_path_unselected;
 	[System.NonSerialized]
-    public Sprite Image_unselected;
+	public Sprite Image_unselected;
 	[System.NonSerialized]
-    public Sprite Image_selected;   
+	public Sprite Image_selected;
 
 }

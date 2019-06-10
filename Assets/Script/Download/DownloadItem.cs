@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Donwload_type {Profil,Objet,Coherence_mat_outil,Coherence_mat_tech, Coherence_mat_just, 
-	                       Coherence_tech_outils, Taille, Forme, Materiaux, Outils, Technique, 
-	                       Justfification_materiel, Question, Current_State}
+public enum Donwload_type
+{
+	Profil, Objet, Coherence_mat_outil, Coherence_mat_tech, Coherence_mat_just,
+	Coherence_tech_outils, Taille, Forme, Materiaux, Outils, Technique,
+	Justfification_materiel, Question, Current_State
+}
 
 
 [System.Serializable]

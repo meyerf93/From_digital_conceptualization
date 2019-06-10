@@ -1,10 +1,10 @@
 Taille_objet;ID;Nom;Dimension;Image_selected;Image_unselected
-;1;Longeur petit;5;Images/Taille/Longeur_petit.png;Images/Taille/Longeur_petit.png
-;2;Longeur moyen;7;Images/Taille/Longeur_moyen.png;Images/Taille/Longeur_moyen.png
-;3;Longeur grand;9;Images/Taille/Longeur_grand.png;Images/Taille/Longeur_grand.png
-;4;Hauteur petit;5;Images/Taille/Hauteur_petit.png;Images/Taille/Hauteur_petit.png
-;5;Hauteur moyen;7;Images/Taille/Hauteur_moyen.png;Images/Taille/Hauteur_moyen.png
-;6;Hauteur grand;9;Images/Taille/Hauteur_grand.png;Images/Taille/Hauteur_grand.png
-;7;Largeur petit;5;Images/Taille/Largeur_petit.png;Images/Taille/Largeur_petit.png
-;8;Largeur moyen;7;Images/Taille/Largeur_moyen.png;Images/Taille/Largeur_moyen.png
-;9;Largeur grand;9;Images/Taille/Largeur_grand.png;Images/Taille/Largeur_grand.png
+;1;Petite longueur;5;Images/Taille/Longeur_petit.png;Images/Taille/Longeur_petit.png
+;2;Moyenne longueur;7;Images/Taille/Longeur_moyen.png;Images/Taille/Longeur_moyen.png
+;3;Grande longueur;9;Images/Taille/Longeur_grand.png;Images/Taille/Longeur_grand.png
+;4;Petite hauteur;5;Images/Taille/Hauteur_petit.png;Images/Taille/Hauteur_petit.png
+;5;Moyenne hauteur;7;Images/Taille/Hauteur_moyen.png;Images/Taille/Hauteur_moyen.png
+;6;Grande hauteur;9;Images/Taille/Hauteur_grand.png;Images/Taille/Hauteur_grand.png
+;7;Petite largeur;5;Images/Taille/Largeur_petit.png;Images/Taille/Largeur_petit.png
+;8;Moyenne largeur;7;Images/Taille/Largeur_moyen.png;Images/Taille/Largeur_moyen.png
+;9;Grande largeur;9;Images/Taille/Largeur_grand.png;Images/Taille/Largeur_grand.png

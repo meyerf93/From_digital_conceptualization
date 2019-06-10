@@ -58,7 +58,7 @@ public class ChoiceController : MonoBehaviour
 	public const string COHERENCE_MATERIEL_TECHNIQUE_FILENAME = "Regles/Coherence_materiel_techniques.csv";
 	public const string COHERENCE_MATERIEL_JUSTIFICATION_FILENAME = "Regles/Coherence_materiel_justificatif.csv";
 	public const string COHERENCE_TECHNIQUE_OUTILS_FILENAME = "Regles/Coherence_techniques_outils.csv";
-    
+
 	private LoadDataBase dataBase;
 
 	private bool model_loaded = false;
@@ -82,7 +82,7 @@ public class ChoiceController : MonoBehaviour
 		if (controller == null)
 		{
 			DontDestroyOnLoad(gameObject);
-			InitModel();                    
+			InitModel();
 		}
 		else if (controller != this)
 		{
@@ -116,32 +116,32 @@ public class ChoiceController : MonoBehaviour
 		Debug.Log("reset at init : " + reset);
 		dataBase = FindObjectOfType<LoadDataBase>();
 
-        controller = this;
-        downloadManager = FindObjectOfType<DownloadManager>();
+		controller = this;
+		downloadManager = FindObjectOfType<DownloadManager>();
 
-        Profils = new Profils();
-        Historique = new List<Historique>();
-        Objets = new List<Objets>();
+		Profils = new Profils();
+		Historique = new List<Historique>();
+		Objets = new List<Objets>();
 
-        Forme_validation = new bool[5];
-        for (int i = 0; i < Forme_validation.Length; i++)
-        {
-            Forme_validation[i] = false;
-        }
+		Forme_validation = new bool[5];
+		for (int i = 0; i < Forme_validation.Length; i++)
+		{
+			Forme_validation[i] = false;
+		}
 
 
-        Forme = new List<Item>();
-        TailleObjet = new List<Taille>();
-        JustificationMateriel = new List<Item>();
-        Outils = new List<Item>();
-        Technique = new List<Item>();
-        Categorie = new List<Item>();
-        Materiaux = new List<Materiaux>();
-        Questions = new List<Question>();
+		Forme = new List<Item>();
+		TailleObjet = new List<Taille>();
+		JustificationMateriel = new List<Item>();
+		Outils = new List<Item>();
+		Technique = new List<Item>();
+		Categorie = new List<Item>();
+		Materiaux = new List<Materiaux>();
+		Questions = new List<Question>();
 
-        list_to_download = new List<DownloadItem>();
+		list_to_download = new List<DownloadItem>();
 
-        InitDownload();
+		InitDownload();
 	}
 
 	void Update()
@@ -153,15 +153,15 @@ public class ChoiceController : MonoBehaviour
 			download_conf = true;
 			//downloadManager.DownloadFile(list_to_download);
 			downloadManager.DownloadFileOffline(list_to_download);
-            
 
-            foreach (DownloadItem item in list_to_download)
-            {
-                base_loaded = item.isLoaded;
-                if (base_loaded == false) break;
-            }
 
-         
+			foreach (DownloadItem item in list_to_download)
+			{
+				base_loaded = item.isLoaded;
+				if (base_loaded == false) break;
+			}
+
+
 			if (base_loaded && !base_is_loaded)
 			{
 				base_is_loaded = true;
@@ -177,66 +177,66 @@ public class ChoiceController : MonoBehaviour
 					Objets = SaveSystem.LoadObjets();
 					dataBase.Load_current_state(Objets);
 				}*/
-				if(!download_current_state)
+				if (!download_current_state)
 				{
 					download_current_state = true;
 					DownloadItem load_objet = new DownloadItem();
-                    load_objet.filePath = CURRENT_STATE_FILENAME;
-                    load_objet.type = Donwload_type.Objet;
+					load_objet.filePath = CURRENT_STATE_FILENAME;
+					load_objet.type = Donwload_type.Objet;
 
-                    List<DownloadItem> temp_liste = new List<DownloadItem>();
-                    temp_liste.Add(load_objet);
+					List<DownloadItem> temp_liste = new List<DownloadItem>();
+					temp_liste.Add(load_objet);
 
 					//downloadManager.DownloadCurrentState(temp_liste);
 					downloadManager.DownloadCurrentStateOffline(temp_liste);
 				}
 
-				if(!download_profils)
+				if (!download_profils)
 				{
 					download_profils = true;
 					DownloadItem load_objet = new DownloadItem();
 					load_objet.filePath = PROFILS_FILENAME;
 					load_objet.type = Donwload_type.Profil;
 
-                    List<DownloadItem> temp_liste = new List<DownloadItem>();
-                    temp_liste.Add(load_objet);
+					List<DownloadItem> temp_liste = new List<DownloadItem>();
+					temp_liste.Add(load_objet);
 
-                    //downloadManager.DownloadCurrentState(temp_liste);
+					//downloadManager.DownloadCurrentState(temp_liste);
 					downloadManager.DownloadProfilOffline(temp_liste);
 				}
-                
+
 				bool current_state_is_loaded = false;
-				foreach(DownloadItem thing in list_to_download)
+				foreach (DownloadItem thing in list_to_download)
 				{
 					current_state_is_loaded = thing.isLoaded;
 					if (!current_state_is_loaded) break;
 				}
 
-                
 
-				if(!download_image)
+
+				if (!download_image)
 				{
 					download_liste = new List<Item>();
 
 					InitDownloadImage();
-                    
-					download_image = true;               
-                    //downloadManager.DownloadImage(download_image_liste);
+
+					download_image = true;
+					//downloadManager.DownloadImage(download_image_liste);
 					downloadManager.DownloadImageOffline(download_image_liste);
 				}
 
 
 				bool isModelLoaded = false;
-                
-				foreach(DownloadImageItem image in download_image_liste )
+
+				foreach (DownloadImageItem image in download_image_liste)
 				{
 					isModelLoaded = image.isLoaded;
 					if (isModelLoaded == false) break;
 				}
 
 				if (!load_specific)
-				{ 
-					foreach(Objets obj in Objets)
+				{
+					foreach (Objets obj in Objets)
 					{
 						DownloadImageItem temp_item = download_image_liste.Find(r => r.item.Nom == obj.Nom);
 						obj.Image_selected = temp_item.item.Image_selected;
@@ -246,26 +246,26 @@ public class ChoiceController : MonoBehaviour
 					}
 
 					foreach (Taille obj in TailleObjet)
-                    {
-                        DownloadImageItem temp_item = download_image_liste.Find(r => r.item.Nom == obj.Nom);
-                        obj.Image_selected = temp_item.item.Image_selected;
-                        obj.Image_unselected = temp_item.item.Image_unselected;
-                    }
+					{
+						DownloadImageItem temp_item = download_image_liste.Find(r => r.item.Nom == obj.Nom);
+						obj.Image_selected = temp_item.item.Image_selected;
+						obj.Image_unselected = temp_item.item.Image_unselected;
+					}
 
 					foreach (Materiaux obj in Materiaux)
-                    {
-                        DownloadImageItem temp_item = download_image_liste.Find(r => r.item.Nom == obj.Nom);
-                        obj.Image_selected = temp_item.item.Image_selected;
-                        obj.Image_unselected = temp_item.item.Image_unselected;
-                    }
+					{
+						DownloadImageItem temp_item = download_image_liste.Find(r => r.item.Nom == obj.Nom);
+						obj.Image_selected = temp_item.item.Image_selected;
+						obj.Image_unselected = temp_item.item.Image_unselected;
+					}
 					load_specific = true;
 
 				}
-                    
-                if(load_specific)
+
+				if (load_specific)
 				{
 					model_loaded = true;
-                    SceneManager.LoadScene("Selection_objet");
+					SceneManager.LoadScene("Selection_objet");
 				}
 			}
 		}
@@ -277,40 +277,40 @@ public class ChoiceController : MonoBehaviour
 	{
 		Debug.Log("reset : " + reset);
 		//SaveSystem.SaveObjets(Objets);
-		if (!reset) 
-		{ 
-    		download_current_state = true;
-    		DownloadItem load_objet = new DownloadItem();
-    		load_objet.filePath = CURRENT_STATE_FILENAME;
-    		load_objet.type = Donwload_type.Objet;
-    		load_objet.data = Objets;
+		if (!reset)
+		{
+			download_current_state = true;
+			DownloadItem load_objet = new DownloadItem();
+			load_objet.filePath = CURRENT_STATE_FILENAME;
+			load_objet.type = Donwload_type.Objet;
+			load_objet.data = Objets;
 
-    		List<DownloadItem> temp_liste = new List<DownloadItem>();
-    		temp_liste.Add(load_objet);
+			List<DownloadItem> temp_liste = new List<DownloadItem>();
+			temp_liste.Add(load_objet);
 
-    		//downloadManager.UpodloadCurrentState(temp_liste);
-    		downloadManager.UploadCurrentStateOffline(temp_liste);
+			//downloadManager.UpodloadCurrentState(temp_liste);
+			downloadManager.UploadCurrentStateOffline(temp_liste);
 
-    		download_profils = true;
-    		DownloadItem load_profil = new DownloadItem();
-    		load_profil.filePath = PROFILS_FILENAME;
-    		load_profil.type = Donwload_type.Objet;
-    		load_profil.data = Profils;
+			download_profils = true;
+			DownloadItem load_profil = new DownloadItem();
+			load_profil.filePath = PROFILS_FILENAME;
+			load_profil.type = Donwload_type.Objet;
+			load_profil.data = Profils;
 
-    		List<DownloadItem> temp_liste_profil = new List<DownloadItem>();
-    		temp_liste_profil.Add(load_profil);
+			List<DownloadItem> temp_liste_profil = new List<DownloadItem>();
+			temp_liste_profil.Add(load_profil);
 
-    		//downloadManager.UpodloadCurrentState(temp_liste);
-    		downloadManager.UploadProfilsOffline(temp_liste_profil);
-	    }
-     }
+			//downloadManager.UpodloadCurrentState(temp_liste);
+			downloadManager.UploadProfilsOffline(temp_liste_profil);
+		}
+	}
 
 	void init_associationQuestion()
 	{
 		int i = 1;
-		foreach(Objets id in Objets)
+		foreach (Objets id in Objets)
 		{
-			foreach(Question item in Questions)
+			foreach (Question item in Questions)
 			{
 				Association_question temp_question = new Association_question();
 				temp_question.ID = i;
@@ -326,7 +326,7 @@ public class ChoiceController : MonoBehaviour
 
 	void init_currentState()
 	{
-		foreach(Objets id in Objets)
+		foreach (Objets id in Objets)
 		{
 			id.FormeActive = new List<int>();
 			id.FormeInactive = new List<int>();
@@ -336,29 +336,29 @@ public class ChoiceController : MonoBehaviour
 			id.OutilsInactif = new List<int>();
 			id.TechniqueActive = new List<int>();
 			id.TechniqueInactive = new List<int>();
-			foreach(Item temp_forme in Forme)
+			foreach (Item temp_forme in Forme)
 			{
 				id.FormeInactive.Add(temp_forme.ID);
 			}
 
-			foreach(Taille temp_Taille in TailleObjet)
+			foreach (Taille temp_Taille in TailleObjet)
 			{
 				id.TailleInactive.Add(temp_Taille.ID);
 			}
 
-			foreach(Item temp_outils in Outils)
+			foreach (Item temp_outils in Outils)
 			{
 				id.OutilsInactif.Add(temp_outils.ID);
 			}
 
-			foreach(Item temp_technique in Technique)
+			foreach (Item temp_technique in Technique)
 			{
 				id.TechniqueInactive.Add(temp_technique.ID);
 			}
 		}
 	}
-    
-    public void init_StateSousMateriaux()
+
+	public void init_StateSousMateriaux()
 	{
 		int i = 1;
 		foreach (Objets id in Objets)
@@ -372,12 +372,12 @@ public class ChoiceController : MonoBehaviour
 				temp_sous_materiaux.Object = id.ID;
 				temp_sous_materiaux.SousMateriaux = item.ID;
 				id.StateSousMateriauxes.Add(temp_sous_materiaux);
-                
+
 				i++;
 			}
 		}
 	}
-    
+
 	public void init_StateMateriaux()
 	{
 		int i = 1;
@@ -388,7 +388,7 @@ public class ChoiceController : MonoBehaviour
 			{
 				StateMateriaux temp_state_materiaux = new StateMateriaux();
 				temp_state_materiaux.ID = i;
-                
+
 				temp_state_materiaux.Modification = false;
 				temp_state_materiaux.Selected = false;
 
@@ -403,7 +403,7 @@ public class ChoiceController : MonoBehaviour
 			}
 		}
 	}
-   
+
 	public void init_StateJustification()
 	{
 		int i = 1;
@@ -433,145 +433,146 @@ public class ChoiceController : MonoBehaviour
 	private void InitDownload()
 	{
 		DownloadItem temp_Objet = new DownloadItem();
-        temp_Objet.filePath = OBJETS_FILENAME;
-        temp_Objet.type = Donwload_type.Objet;
+		temp_Objet.filePath = OBJETS_FILENAME;
+		temp_Objet.type = Donwload_type.Objet;
 
-        list_to_download.Add(temp_Objet);
-       
-        DownloadItem temp_taille = new DownloadItem();
-        temp_taille.filePath = TAILLE_FILENAME;
-        temp_taille.type = Donwload_type.Taille;
+		list_to_download.Add(temp_Objet);
 
-        list_to_download.Add(temp_taille);
+		DownloadItem temp_taille = new DownloadItem();
+		temp_taille.filePath = TAILLE_FILENAME;
+		temp_taille.type = Donwload_type.Taille;
 
-        DownloadItem temp_forme = new DownloadItem();
-        temp_forme.filePath = FORME_FILENAME;
-        temp_forme.type = Donwload_type.Forme;
+		list_to_download.Add(temp_taille);
 
-        list_to_download.Add(temp_forme);
+		DownloadItem temp_forme = new DownloadItem();
+		temp_forme.filePath = FORME_FILENAME;
+		temp_forme.type = Donwload_type.Forme;
 
-        DownloadItem temp_materiel = new DownloadItem();
-        temp_materiel.filePath = MATERIEL_FILENAME;
-        temp_materiel.type = Donwload_type.Materiaux;
+		list_to_download.Add(temp_forme);
 
-        list_to_download.Add(temp_materiel);
+		DownloadItem temp_materiel = new DownloadItem();
+		temp_materiel.filePath = MATERIEL_FILENAME;
+		temp_materiel.type = Donwload_type.Materiaux;
 
-        DownloadItem temp_justification = new DownloadItem();
-        temp_justification.filePath = JUSTIFICATION_FILENAME;
-        temp_justification.type = Donwload_type.Justfification_materiel;
+		list_to_download.Add(temp_materiel);
 
-        list_to_download.Add(temp_justification);
+		DownloadItem temp_justification = new DownloadItem();
+		temp_justification.filePath = JUSTIFICATION_FILENAME;
+		temp_justification.type = Donwload_type.Justfification_materiel;
 
-        DownloadItem temp_outils = new DownloadItem();
-        temp_outils.filePath = OUTILS_FILENAME;
-        temp_outils.type = Donwload_type.Outils;
+		list_to_download.Add(temp_justification);
 
-        list_to_download.Add(temp_outils);
+		DownloadItem temp_outils = new DownloadItem();
+		temp_outils.filePath = OUTILS_FILENAME;
+		temp_outils.type = Donwload_type.Outils;
 
-        DownloadItem temp_technique = new DownloadItem();
-        temp_technique.filePath = TECHNIQUE_FILENAME;
-        temp_technique.type = Donwload_type.Technique;
+		list_to_download.Add(temp_outils);
 
-        list_to_download.Add(temp_technique);
+		DownloadItem temp_technique = new DownloadItem();
+		temp_technique.filePath = TECHNIQUE_FILENAME;
+		temp_technique.type = Donwload_type.Technique;
 
-        DownloadItem temp_question = new DownloadItem();
-        temp_question.filePath = QUESTION_FILENAME;
-        temp_question.type = Donwload_type.Question;
+		list_to_download.Add(temp_technique);
 
-        list_to_download.Add(temp_question);
+		DownloadItem temp_question = new DownloadItem();
+		temp_question.filePath = QUESTION_FILENAME;
+		temp_question.type = Donwload_type.Question;
 
-        DownloadItem temp_coherence_mat_outils = new DownloadItem();
-        temp_coherence_mat_outils.filePath = COHERENCE_MATERIEL_OUTILS_FILENAME;
-        temp_coherence_mat_outils.type = Donwload_type.Coherence_mat_outil;
+		list_to_download.Add(temp_question);
 
-        list_to_download.Add(temp_coherence_mat_outils);
+		DownloadItem temp_coherence_mat_outils = new DownloadItem();
+		temp_coherence_mat_outils.filePath = COHERENCE_MATERIEL_OUTILS_FILENAME;
+		temp_coherence_mat_outils.type = Donwload_type.Coherence_mat_outil;
 
-        DownloadItem temp_coherence_mat_tech = new DownloadItem();
-        temp_coherence_mat_tech.filePath = COHERENCE_MATERIEL_TECHNIQUE_FILENAME;
-        temp_coherence_mat_tech.type = Donwload_type.Coherence_mat_tech;
+		list_to_download.Add(temp_coherence_mat_outils);
 
-        list_to_download.Add(temp_coherence_mat_tech);
+		DownloadItem temp_coherence_mat_tech = new DownloadItem();
+		temp_coherence_mat_tech.filePath = COHERENCE_MATERIEL_TECHNIQUE_FILENAME;
+		temp_coherence_mat_tech.type = Donwload_type.Coherence_mat_tech;
 
-        DownloadItem temp_coherence_mat_just = new DownloadItem();
-        temp_coherence_mat_just.filePath = COHERENCE_MATERIEL_JUSTIFICATION_FILENAME;
-        temp_coherence_mat_just.type = Donwload_type.Coherence_mat_just;
+		list_to_download.Add(temp_coherence_mat_tech);
 
-        list_to_download.Add(temp_coherence_mat_just);
+		DownloadItem temp_coherence_mat_just = new DownloadItem();
+		temp_coherence_mat_just.filePath = COHERENCE_MATERIEL_JUSTIFICATION_FILENAME;
+		temp_coherence_mat_just.type = Donwload_type.Coherence_mat_just;
 
-        DownloadItem temp_coherence_tech_outils = new DownloadItem();
-        temp_coherence_tech_outils.filePath = COHERENCE_TECHNIQUE_OUTILS_FILENAME;
-        temp_coherence_tech_outils.type = Donwload_type.Coherence_tech_outils;
-        list_to_download.Add(temp_coherence_tech_outils);
+		list_to_download.Add(temp_coherence_mat_just);
+
+		DownloadItem temp_coherence_tech_outils = new DownloadItem();
+		temp_coherence_tech_outils.filePath = COHERENCE_TECHNIQUE_OUTILS_FILENAME;
+		temp_coherence_tech_outils.type = Donwload_type.Coherence_tech_outils;
+		list_to_download.Add(temp_coherence_tech_outils);
 	}
 
 	private void InitDownloadImage()
 	{
 		List<Item> temp_list_objet = new List<Item>();
-        foreach (Objets element in Objets)
-        {
-            Item temp_item = new Item();
-            temp_item.ID = element.ID;
-            temp_item.Image_path_selected = element.Image_path_selected;
-            temp_item.Image_path_unselected = element.Image_path_unselected;
-            temp_item.Nom = element.Nom;
-            temp_item.Image_selected = element.Image_selected;
-            temp_item.Image_unselected = element.Image_unselected;
-            element.Image_selected = temp_item.Image_selected;
-            element.Image_unselected = temp_item.Image_unselected;
-            temp_list_objet.Add(temp_item);
-        }
+		foreach (Objets element in Objets)
+		{
+			Item temp_item = new Item();
+			temp_item.ID = element.ID;
+			temp_item.Image_path_selected = element.Image_path_selected;
+			temp_item.Image_path_unselected = element.Image_path_unselected;
+			temp_item.Nom = element.Nom;
+			temp_item.Image_selected = element.Image_selected;
+			temp_item.Image_unselected = element.Image_unselected;
+			element.Image_selected = temp_item.Image_selected;
+			element.Image_unselected = temp_item.Image_unselected;
+			temp_list_objet.Add(temp_item);
+		}
 
-        download_liste.AddRange(temp_list_objet);
+		download_liste.AddRange(temp_list_objet);
 
-        download_liste.AddRange(Forme);
-        download_liste.AddRange(JustificationMateriel);
-        download_liste.AddRange(Outils);
-        download_liste.AddRange(Technique);
+		download_liste.AddRange(Forme);
+		download_liste.AddRange(JustificationMateriel);
+		download_liste.AddRange(Outils);
+		download_liste.AddRange(Technique);
 
-        List<Item> temp_list_taille = new List<Item>();
-        foreach (Taille element in TailleObjet)
-        {
-            Item temp_item = new Item();
-            temp_item.ID = element.ID;
-            temp_item.Image_path_selected = element.Image_path_selected;
-            temp_item.Image_path_unselected = element.Image_path_unselected;
-            temp_item.Nom = element.Nom;
-            temp_item.Image_selected = element.Image_selected;
-            temp_item.Image_unselected = element.Image_unselected;
-            element.Image_selected = temp_item.Image_selected;
-            element.Image_unselected = temp_item.Image_unselected;
-            temp_list_taille.Add(temp_item);
-        }
+		List<Item> temp_list_taille = new List<Item>();
+		foreach (Taille element in TailleObjet)
+		{
+			Item temp_item = new Item();
+			temp_item.ID = element.ID;
+			temp_item.Image_path_selected = element.Image_path_selected;
+			temp_item.Image_path_unselected = element.Image_path_unselected;
+			temp_item.Nom = element.Nom;
+			temp_item.Image_selected = element.Image_selected;
+			temp_item.Image_unselected = element.Image_unselected;
+			element.Image_selected = temp_item.Image_selected;
+			element.Image_unselected = temp_item.Image_unselected;
+			temp_list_taille.Add(temp_item);
+		}
 
-        download_liste.AddRange(temp_list_taille);
+		download_liste.AddRange(temp_list_taille);
 
 
-        List<Item> temp_list_materiaux = new List<Item>();
-        foreach (Materiaux element in Materiaux)
-        {
-            Item temp_item = new Item();
-            temp_item.ID = element.ID;
-            temp_item.Image_path_selected = element.Image_path_selected;
-            temp_item.Image_path_unselected = element.Image_path_unselected;
-            temp_item.Nom = element.Nom;
-            temp_item.Image_selected = element.Image_selected;
-            temp_item.Image_unselected = element.Image_unselected;
-            element.Image_selected = temp_item.Image_selected;
-            element.Image_unselected = temp_item.Image_unselected;
-            temp_list_materiaux.Add(temp_item);
-        }
-        download_liste.AddRange(temp_list_materiaux);
+		List<Item> temp_list_materiaux = new List<Item>();
+		foreach (Materiaux element in Materiaux)
+		{
+			Item temp_item = new Item();
+			temp_item.ID = element.ID;
+			temp_item.Image_path_selected = element.Image_path_selected;
+			temp_item.Image_path_unselected = element.Image_path_unselected;
+			temp_item.Nom = element.Nom;
+			temp_item.Image_selected = element.Image_selected;
+			temp_item.Image_unselected = element.Image_unselected;
+			element.Image_selected = temp_item.Image_selected;
+			element.Image_unselected = temp_item.Image_unselected;
+			temp_list_materiaux.Add(temp_item);
+		}
 
-        download_liste.AddRange(Categorie);
+		download_liste.AddRange(temp_list_materiaux);
 
-        download_image_liste = new List<DownloadImageItem>();
-        foreach (Item item in download_liste)
-        {
-            DownloadImageItem imageItem = new DownloadImageItem();
-            imageItem.isLoaded = false;
-            imageItem.startLoad = false;
-            imageItem.item = item;
-            download_image_liste.Add(imageItem);
-        }
-    }
+		download_liste.AddRange(Categorie);
+
+		download_image_liste = new List<DownloadImageItem>();
+		foreach (Item item in download_liste)
+		{
+			DownloadImageItem imageItem = new DownloadImageItem();
+			imageItem.isLoaded = false;
+			imageItem.startLoad = false;
+			imageItem.item = item;
+			download_image_liste.Add(imageItem);
+		}
+	}
 }

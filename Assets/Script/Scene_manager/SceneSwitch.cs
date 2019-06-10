@@ -13,7 +13,7 @@ public class SceneSwitch : MonoBehaviour
 	private void Start()
 	{
 		model = FindObjectOfType<ChoiceController>();
-		Button button = this.GetComponent<Button>();
+		button = this.GetComponent<Button>();
 		button.interactable = false;
 		foreach (Objets element in model.Objets)
 		{
@@ -26,7 +26,7 @@ public class SceneSwitch : MonoBehaviour
 
 	public void LoadScene()
 	{
-		
+
 		SceneManager.LoadScene("Load");
 	}
 
@@ -41,13 +41,13 @@ public class SceneSwitch : MonoBehaviour
 	{
 		SceneManager.LoadScene("Context_objet");
 	}
-    
+
 
 	public void FormeObjet()
 	{
 		SceneManager.LoadScene("Forme_objet");
 	}
-       
+
 	public void MaterialSwitch()
 	{
 		SceneManager.LoadScene("Material");
@@ -81,7 +81,7 @@ public class SceneSwitch : MonoBehaviour
 	public void ImaginonsObjet()
 	{
 		display_resume temp_resume = FindObjectOfType<display_resume>();
-		if(temp_resume != null) temp_resume.save_score();
+		if (temp_resume != null) temp_resume.save_score();
 		SceneManager.LoadScene("Imaginons_objet");
 	}
 

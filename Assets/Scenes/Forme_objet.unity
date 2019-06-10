@@ -539,7 +539,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "En quel mat\xE9riel est-il fait ?"
+  m_Text: "De quels mat\xE9riaux est-il fait ?"
 --- !u!222 &621180986
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1561,7 +1561,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Quelle technique vais-je utiliser ? '
+  m_Text: 'Quelles techniques vais-je utiliser ? '
 --- !u!222 &1372207121
 CanvasRenderer:
   m_ObjectHideFlags: 0

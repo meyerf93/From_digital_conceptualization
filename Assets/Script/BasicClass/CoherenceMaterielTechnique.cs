@@ -6,8 +6,8 @@ using UnityEngine;
 public class CoherenceMaterielTechnique
 {
 	public int ID;
-    public int Objet;
-    public int Materiels;
-    public int Technique;
+	public int Objet;
+	public int Materiels;
+	public int Technique;
 	public int Score;
 }

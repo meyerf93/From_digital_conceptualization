@@ -6,8 +6,8 @@ using UnityEngine;
 public class CoherenceMaterielJustification
 {
 	public int ID;
-    public int Objet;
-    public int Materiels;
-    public int Justification;
-    public int Score;
+	public int Objet;
+	public int Materiels;
+	public int Justification;
+	public int Score;
 }

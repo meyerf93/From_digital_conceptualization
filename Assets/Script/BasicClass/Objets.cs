@@ -18,8 +18,8 @@ public class Objets
 	public int min_etoiles;
 
 	public Lock_objet Lock;
-    
-   	public List<int> FormeActive;
+
+	public List<int> FormeActive;
 	public List<int> FormeInactive;
 	public List<int> TailleActive;
 	public List<int> TailleInactive;
@@ -32,14 +32,14 @@ public class Objets
 
 	public List<Association_question> Association_Questions;
 
-    public List<CoherenceMaterielJustification> CoherencesMaterielJustification;
-    public List<CoherenceMaterielTechnique> CoherenceMaterielTechnique;
-    public List<CoherenceMaterielOutils> CoherenceMaterielOutils;
-    public List<CoherenceTechniqueOutils> CoherenceTechniqueOutils;
+	public List<CoherenceMaterielJustification> CoherencesMaterielJustification;
+	public List<CoherenceMaterielTechnique> CoherenceMaterielTechnique;
+	public List<CoherenceMaterielOutils> CoherenceMaterielOutils;
+	public List<CoherenceTechniqueOutils> CoherenceTechniqueOutils;
 
-    public List<StateSousMateriaux> StateSousMateriauxes;
-    public List<StateMateriaux> StateMateriauxes;
-    public List<StateJustification> StateJustifications;
+	public List<StateSousMateriaux> StateSousMateriauxes;
+	public List<StateMateriaux> StateMateriauxes;
+	public List<StateJustification> StateJustifications;
 
 	public Objets()
 	{
@@ -61,7 +61,7 @@ public class Objets
 
 		Lock.image_path = data.Lock.image_path;
 		Lock.image = data.Lock.image;
-		
+
 		FormeActive = new List<int>();
 		FormeActive = data.FormeActive;
 

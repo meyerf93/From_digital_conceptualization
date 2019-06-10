@@ -11,23 +11,23 @@ public class Lock_navig : MonoBehaviour
 	private bool isClicked;
 	private ChoiceController model;
 
-    void Start()
-    {
+	void Start()
+	{
 		model = model = FindObjectOfType<ChoiceController>();
 		temp_liste = Layout.GetComponentsInChildren<Toggle>();
 		isClicked = false;
 
-    }
+	}
 
-    void Update()
-    {
+	void Update()
+	{
 		temp_liste = Layout.GetComponentsInChildren<Toggle>();
 
 
-		foreach(Objets element in model.Objets)
+		foreach (Objets element in model.Objets)
 		{
 			isClicked = element.Modification;
-			if(isClicked)
+			if (isClicked)
 			{
 				break;
 			}
@@ -35,5 +35,5 @@ public class Lock_navig : MonoBehaviour
 
 		model.Choix_objet = isClicked;
 		Go.interactable = model.Choix_objet;
-    }
+	}
 }

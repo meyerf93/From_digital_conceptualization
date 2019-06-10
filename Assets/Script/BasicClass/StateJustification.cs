@@ -6,9 +6,9 @@ using UnityEngine;
 public class StateJustification
 {
 	public int ID;
-    public int Objet;
-    public int Materiaux;
+	public int Objet;
+	public int Materiaux;
 	public int Justification;
-    public bool Selected;
-    public bool Modification;
+	public bool Selected;
+	public bool Modification;
 }
